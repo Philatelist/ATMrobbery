@@ -1,0 +1,13 @@
+CREATE DATABASE myBank CHARACTER SET utf8;
+
+USE myBank;
+
+CREATE TABLE users (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    ballance INT(10) NOT NULL,
+    UNIQUE UQ_EMAIL_1 (email),
+    PRIMARY KEY (id)
+);
