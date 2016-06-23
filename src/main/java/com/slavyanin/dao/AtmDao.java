@@ -1,4 +1,4 @@
-package com.slavyanin.da;
+package com.slavyanin.dao;
 
 import com.slavyanin.model.Atm;
 

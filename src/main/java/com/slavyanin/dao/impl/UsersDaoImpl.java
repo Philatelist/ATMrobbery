@@ -1,6 +1,6 @@
-package com.slavyanin.da.impl;
+package com.slavyanin.dao.impl;
 
-import com.slavyanin.da.UsersDao;
+import com.slavyanin.dao.UsersDao;
 import com.slavyanin.model.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
