@@ -1,16 +1,18 @@
-package com.slavyanin.domain;
+package com.slavyanin.model;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class ATMrobbery {
+public class ATMlogic {
 
     static ArrayList<Integer> amount = new ArrayList<>();
     static ArrayList<Integer> nominals = new ArrayList<>();
     static ArrayList<Integer> amountToIssue = new ArrayList<>();
     static ArrayList<Integer> nominalsToIssue = new ArrayList<>();
+
+
 
 
     public static void main(String[] args) throws IOException {

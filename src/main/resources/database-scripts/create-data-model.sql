@@ -1,13 +1,59 @@
-CREATE DATABASE myBank CHARACTER SET utf8;
+CREATE DATABASE bankDB
+  CHARACTER SET utf8;
 
-USE myBank;
+USE bankDB;
 
+ALTER TABLE accounts DROP FOREIGN KEY user_account;
+ALTER TABLE accounts DROP KEY user_account;
+DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    ballance INT(10) NOT NULL,
-    UNIQUE UQ_EMAIL_1 (email),
-    PRIMARY KEY (id)
+  id       INT(10) UNSIGNED NOT NULL,
+  name     VARCHAR(255)     NOT NULL,
+  email    VARCHAR(255)     NOT NULL,
+  password VARCHAR(255)     NOT NULL,
+  PRIMARY KEY (id)
 );
+
+DROP TABLE IF EXISTS roles;
+CREATE TABLE roles (
+  id   INT(10) UNSIGNED NOT NULL,
+  name VARCHAR(255)     NOT NULL,
+  PRIMARY KEY (id)
+);
+
+LOCK TABLES roles WRITE;
+INSERT INTO roles VALUES (1, "ATM_ADMIN");
+INSERT INTO roles VALUES (2, "ATM_CLIENT");
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS accounts;
+CREATE TABLE accounts (
+  id            INT(10) UNSIGNED NOT NULL,
+  user_id       INT(10) UNSIGNED NOT NULL,
+  ballance      INT(10)          NOT NULL,
+  last_modified DATETIME,
+  PRIMARY KEY (id),
+  CONSTRAINT user_account FOREIGN KEY (user_id) REFERENCES users (id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+DROP TABLE IF EXISTS atm;
+CREATE TABLE atm (
+  id        INT(10) UNSIGNED NOT NULL,
+  banknotes INT(10) UNSIGNED NOT NULL,
+  amount    INT(10)          NOT NULL,
+  PRIMARY KEY (id)
+);
+
+LOCK TABLES atm WRITE;
+INSERT INTO atm VALUES (1, 5, 50);
+INSERT INTO atm VALUES (2, 10, 50);
+INSERT INTO atm VALUES (3, 20, 50);
+INSERT INTO atm VALUES (4, 50, 50);
+INSERT INTO atm VALUES (5, 100, 50);
+INSERT INTO atm VALUES (6, 200, 50);
+INSERT INTO atm VALUES (7, 500, 50);
+
+UNLOCK TABLES;
+
