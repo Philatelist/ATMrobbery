@@ -1,4 +1,4 @@
-package com.slavyanin.dao;
+package com.slavyanin.da;
 
 import com.slavyanin.model.Roles;
 

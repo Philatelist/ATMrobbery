@@ -1,6 +1,6 @@
-package com.slavyanin.dao.impl;
+package com.slavyanin.da.impl;
 
-import com.slavyanin.dao.AtmDao;
+import com.slavyanin.da.AtmDao;
 import com.slavyanin.model.Atm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
